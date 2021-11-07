@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Gastos Gerais</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+        
+        body {
+            text-align: center;
+            background-color:rgb(31, 31, 31);
+        }
+        
+        button {
+            margin: 10px;
+            width: 100px;
+            height: 50px;
+            border-radius: 10px;
+            border: 1px solid transparent;
+            font-size: small;
+            font-family: 'Roboto', sans-serif;
+            background-color:rgb(94, 94, 94);
+            color: white;
+            transition-duration: 0.1s;
+            
+        }
+
+        button:hover {
+            border-color: white;
+            
+        }
+        
+        h1 {
+            font-size: xx-large;
+            font-family: 'Roboto', sans-serif;
+            color:white;
+        }
+    
+    </style>
+</head>
+    <body>
+        <form>
+            <label for="polpacao">Meta de Polpação:</label>
+            <input type="number" id="polpacao" name="polpacao" min="0">
+            <br>
+            <label for="reducao">Meta de Redução:</label>
+            <input type="number" id="reducao" name="reducao" min="0">
+            <br>
+            <label for="aumento">Meta de Aumento:</label>
+            <input type="number" id="aumento" name="aumento" min="0">
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+        
+        <button onclick="toInicio()">Retornar ao Inicio</button>
+    </body>
+</html>
+
+
+
