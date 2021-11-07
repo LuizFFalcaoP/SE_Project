@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,19 +17,18 @@
             margin: 10px;
             width: 450px;
             height: 150px;
-            border-radius: 10px;
+            border-radius: 5px;
             border: 1px solid transparent;
             font-size: x-large;
             font-family: 'Roboto', sans-serif;
             background-color:rgb(94, 94, 94);
             color: white;
-            transition-duration: 0.1s;
-            
+            transition-duration: 0.1s;    
         }
 
         button:hover {
             border-color: white;
-            
+            cursor: pointer;
         }
         
         h1 {
@@ -37,16 +36,17 @@
             font-family: 'Roboto', sans-serif;
             color:white;
         }
-    
     </style>
 </head>
 <body>
-    <h1><center>Gerenciador de Gastos Gerais</center></h1>
+    <h1>Gerenciador de Gastos Gerais</h1>
     <button onclick="toRenda()">Informar Renda</button>
-    <button onclick="toDespesas()">Informar Despesas</button><br>
+    <button onclick="toDespesas()">Informar Despesas</button>
+    <br>
     <button onclick="toMetas()">Metas Financeiras</button>
-    <button onclick="toPlanos()">Plano de Gastos</button><br>
+    <button onclick="toPlanos()">Plano de Gastos</button>
+    <br>
     <button onclick="toReceita()">Configurar Receita</button>
-    <button onclick="toGrafico()">Visualizar Gráfico</button><br>
+    <button onclick="toGrafico()">Visualizar Gráfico</button>
 </body>
 </html>

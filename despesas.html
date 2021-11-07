@@ -14,22 +14,20 @@
         }
         
         button {
-            margin: 10px;
             width: 100px;
             height: 50px;
-            border-radius: 10px;
+            border-radius: 5px;
             border: 1px solid transparent;
-            font-size: small;
             font-family: 'Roboto', sans-serif;
+            font-size: medium;
             background-color:rgb(94, 94, 94);
             color: white;
-            transition-duration: 0.1s;
-            
+            float:right;
+            margin: 1px 1250px;
         }
 
         button:hover {
-            border-color: white;
-            
+            border-color: white;   
         }
         
         h1 {
@@ -37,28 +35,69 @@
             font-family: 'Roboto', sans-serif;
             color:white;
         }
-    
+
+        label {
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            font-size: large;
+        }
+        
+        input[type=number] {
+            margin: 10px;
+            width: 200px;
+            height: 25px;
+            color: white;
+            border-radius: 15px;
+            border: 1px solid white;
+            background-color: rgb(31, 31, 31);
+            transition-duration: 0.1s;
+        }
+
+        input[type=number]:hover {
+            border-color: transparent;
+            background-color: rgb(94, 94, 94);
+        }
+
+        input[type=submit] {
+            margin: 10px;
+            width: 150px;
+            height: 25px;
+            border-radius: 5px;
+            border: 1px solid transparent;
+            font-family: 'Roboto', sans-serif;
+            font-size: medium;
+            background-color:rgb(94, 94, 94);
+            color: white;
+            transition-duration: 0.1s;
+        }
+
+        input[type=submit]:hover {
+            border-color: white;  
+        }
     </style>
 </head>
     <body>
-        <h1><center>Gerenciador de Despesas</center></h1>
+        <h1>Despesas</h1>
+        <button onclick="toInicio()">Retornar</button>
         <form>
-            <label for="escola">Despesas Para Escola:</label>
+            <label for="escola">Despesas com Escola:</label>
+            <br>
             <input type="number" id="escola" name="escola" min="0">
             <br>
-            <label for="viagens">Despesas de Viagens:</label>
+            <label for="viagens">Despesas com Viagens:</label>
+            <br>
             <input type="number" id="viagens" name="viagens" min="0">
             <br>
-            <label for="material">Despesas Para Material Escolar:</label>
+            <label for="material">Despesas com Material Escolar:</label>
+            <br>
             <input type="number" id="material" name="material" min="0">
             <br>
             <label for="gerais">Despesas Gerais:</label>
+            <br>
             <input type="number" id="gerais" name="gerais" min="0">
             <br>
-            <input type="submit" value="Submit">
+            <input type="submit" value="Submeter Valores">
         </form>
-        
-        <button onclick="toInicio()">Retornar ao Inicio</button>
     </body>
 </html>
 

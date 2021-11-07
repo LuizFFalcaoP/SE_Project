@@ -14,35 +14,39 @@
         }
         
         button {
-            margin: 10px;
-            width: 450px;
-            height: 150px;
-            border-radius: 10px;
+            width: 225px;
+            height: 25px;
+            border-radius: 5px;
             border: 1px solid transparent;
-            font-size: x-large;
             font-family: 'Roboto', sans-serif;
+            font-size: medium;
             background-color:rgb(94, 94, 94);
             color: white;
-            transition-duration: 0.1s;
-            
+            margin: 10px;
         }
 
         button:hover {
-            border-color: white;
-            
+            border-color: white;   
         }
-        
+
+        .button0 {
+            width: 100px;
+            height: 50px;
+            float: right;
+            margin: 1px 1250px;
+        }
+
         h1 {
             font-size: xx-large;
             font-family: 'Roboto', sans-serif;
             color:white;
         }
-    
     </style>
 </head>
 <body>
-    <h1><center>Visualizador de Gráficos</center></h1>
-    <button onclick="toGrafMensal()">Gráico de Receitas e Despesas Mensais</button>
-    <button onclick="toGrafAnual()">Gráico de Receitas e Despesas Mensais</button><br>
+    <h1>Gráficos</h1>
+    <button class="button button0" onclick="toInicio()">Retornar</button>
+    <button onclick="showGrafMensal()">Visualizar Gráfico Mensal</button>
+    <button onclick="showGrafAnual()">Visualizar Gráfico Anual</button>
 </body>
 </html>
