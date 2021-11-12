@@ -1,0 +1,31 @@
+{
+  "name": "general-receipts-manager",
+  "version": "1.0.0",
+  "description": "A REST Api to manage business rules on General Receipts Manager software",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node node_modules/nodemon/bin/nodemon bin/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LuizFFalcaoP/SE_Project.git"
+  },
+  "author": "Juliane Pires",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LuizFFalcaoP/SE_Project/issues"
+  },
+  "homepage": "https://github.com/LuizFFalcaoP/SE_Project#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "debug": "^4.3.2",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.12"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
