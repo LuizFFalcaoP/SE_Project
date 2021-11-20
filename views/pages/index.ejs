@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../partials/head', {page: 'main'}); %>
+</head>
+
+<body>
+  <h1>Gerenciador de Gastos Gerais</h1>
+  <%- include('../partials/navButton', {path: 'renda', label: 'Informar Renda'}); %>
+  <%- include('../partials/navButton', {path: 'despesas', label: 'Informar Despesas'}); %>
+  <%- include('../partials/navButton', {path: 'metas', label: 'Metas Financeiras'}); %>
+  <%- include('../partials/navButton', {path: 'planos', label: 'Planos de Gastos'}); %>
+  <%- include('../partials/navButton', {path: 'receita', label: 'Configurar Receita'}); %>
+  <%- include('../partials/navButton', {path: 'grafico', label: 'Gráfico'}); %>
+
+  <!--     <button onclick="toDespesas()">Informar Despesas</button>
+    <br>
+    <button onclick="toMetas()">Metas Financeiras</button>
+    <button onclick="toPlanos()">Plano de Gastos</button>
+    <br>
+    <button onclick="toReceita()">Configurar Receita</button>
+    <button onclick="toGrafico()">Visualizar Gráfico</button> -->
+  <script src="/js/script.js"></script>
+</body>
+
+</html>

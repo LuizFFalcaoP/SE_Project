@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../partials/head', {page: 'renda'}); %>
+</head>
+
+<body>
+  <h1>Renda</h1>
+  <%- include('../partials/return')%>
+  <form>
+    <label for="rendaMensal">Renda Mensal:</label>
+    <br>
+    <input type="number" id="rendaMensal" name="rendaMensal" min="0">
+    <br>
+    <label for="ganhoExterno">Ganho Externo:</label>
+    <br>
+    <input type="number" id="ganhoExterno" name="ganhoExterno" min="0">
+    <br>
+    <input type="submit" value="Submeter Valores">
+  </form>
+  <script src="/js/script.js"></script>
+</body>
+
+</html>
