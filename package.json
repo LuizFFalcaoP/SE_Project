@@ -1,0 +1,11 @@
+{
+  "name": "SE_Project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:LuizFFalcaoP/SE_Project.git",
+  "author": "Renan Paixão <renanlemos21@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "chart.js": "^3.6.0"
+  }
+}
