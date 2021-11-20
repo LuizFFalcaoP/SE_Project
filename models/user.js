@@ -4,7 +4,7 @@ const database = require('./../database')
 const User = database.define(
   'users',
   {
-    userId: {
+    userid: {
       type: Sequelize.INTEGER,
       autoIncrement: true,
       allowNull: false,
@@ -23,12 +23,12 @@ const User = database.define(
         type: Sequelize.STRING,
         allowNull: false,
     },
-    minimalReceipt: {
+    minimalreceipt: {
         type: Sequelize.DECIMAL,
         defaultValue: 0.5,
         allowNull: false,
     },
-    monthlyReceipt: {
+    monthlyreceipt: {
         type: Sequelize.DECIMAL,
         defaultValue: 0,
         allowNull: false,
@@ -37,8 +37,8 @@ const User = database.define(
   {
     freezeTableName: true,
     timestamps: true,
-    createdAt: true,
-    updatedAt: true,
+    createdAt: false,
+    updatedAt: false,
   },
 )
 module.exports = User
