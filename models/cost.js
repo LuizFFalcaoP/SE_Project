@@ -1,4 +1,4 @@
-const Sequelize = require('sequelize')
+const { Sequelize, DataTypes } = require('sequelize')
 const database = require('../database')
 
 const Cost = database.define(
@@ -31,7 +31,7 @@ const Cost = database.define(
       type: Sequelize.ENUM(
         'Cartão de crédito',
         'Imóveis e aluguéis',
-        'Custos gerais'
+        'Custos gerais',
       ),
       allowNull: false,
     },
