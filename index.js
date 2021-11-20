@@ -14,8 +14,10 @@ const User = require('./models/user')
 const Cost = require('./models/cost')
 const Bill = require('./models/bill')
 
-app.get('/', (req, res) => {
-  res.render('pages/index')
+app.get('/', async (req, res) => {
+  const user = await User.findByPk(1)
+
+  res.render('pages/index', { user })
 })
 
 app.get('/despesas', (req, res) => {
@@ -34,12 +36,32 @@ app.get('/planos', (req, res) => {
   res.render('pages/planos')
 })
 
-app.get('/receitas', (req, res) => {
+app.get('/receita', (req, res) => {
   res.render('pages/receitas')
 })
 
-app.get('/renda', (req, res) => {
-  res.render('pages/renda')
+app.get('/renda', async (req, res) => {
+  const user = await User.findByPk(1)
+  res.render('pages/renda', {renda: user.monthlyreceipt})
+})
+
+app.post('/renda', async (req, res) => {
+  const user = await User.findByPk(1)
+  const {rendaMensal, ganhoExterno} = req.body
+
+  user.monthlyreceipt = rendaMensal
+
+  await user.save()
+  await Cost.create({
+    label: 'Ganho Externo',
+    value: ganhoExterno,
+    date: new Date(),
+    type: 'receita',
+    category: 'Custos gerais',
+    userId: user.id
+  })
+
+  res.redirect('/')
 })
 
 app.listen(port, () =>

@@ -36,7 +36,7 @@ const Bill = database.define(
       ),
       allowNull: false,
     },
-    receiptId: {
+    costId: {
       type: Sequelize.INTEGER,
       allowNull: false,
     },
@@ -49,8 +49,8 @@ const Bill = database.define(
   {
     freezeTableName: true,
     timestamps: true,
-    createdAt: true,
-    updatedAt: true,
+    createdAt: false,
+    updatedAt: false,
   },
 )
 

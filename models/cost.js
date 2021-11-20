@@ -43,8 +43,8 @@ const Cost = database.define(
   {
     freezeTableName: true,
     timestamps: true,
-    createdAt: true,
-    updatedAt: true,
+    createdAt: false,
+    updatedAt: false,
   },
 )
 

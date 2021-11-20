@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <%- include('../partials/head', {page: 'grafico'}); %>
+  <%- include('../partials/head', {page: 'grafico'}); %>
+  <script type="text/javascript" src="/js/chart.js" defer></script>
 </head>
+
 <body>
-    <h1>Gráficos</h1>
-    <%- include('../partials/return')%>
-    <button onclick="showGrafMensal()">Visualizar Gráfico Mensal</button>
-    <button onclick="showGrafAnual()">Visualizar Gráfico Anual</button>
-    <script src="/js/script.js"></script>
+  <h1>Gráficos</h1>
+  <%- include('../partials/return')%>
+  <button onclick="showGrafMensal()">Visualizar Gráfico Mensal</button>
+  <button onclick="showGrafAnual()">Visualizar Gráfico Anual</button>
+  <div id="containerMonth" class="design">
+    <canvas height="600" id="myChartMonth" width="200" style="display: block; box-sizing: border-box;"></canvas>
+  </div>
+  <div id="containerAnnual" class="design">
+    <canvas id="myChartAnnual" height="200"></canvas>
+  </div>
+
+  <script src="../../node_modules/chart.js/dist/chart.js"></script>
 </body>
+
 </html>
