@@ -1,0 +1,17 @@
+.design{
+    background-color: #363636;
+    margin: 0 auto;
+    display: none;
+}
+
+#containerMonth{
+    width: 600px;
+}
+#containerAnnual{
+    width: 900px;
+    height: 600px;
+}
+#myChartAnnual{
+    display: block;
+    box-sizing: border-box;
+}
