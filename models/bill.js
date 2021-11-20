@@ -20,7 +20,7 @@ const Bill = database.define(
     },
     dueDate: {
       type: Sequelize.DATE,
-      allowNull: false,
+      allowNull: true,
     },
     category: {
       type: Sequelize.ENUM(
