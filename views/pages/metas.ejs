@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../partials/head', {page: 'metas'}); %>
+</head>
+
+<body>
+  <h1>Metas</h1>
+  <%- include('../partials/return')%>
+  <form>
+    <label for="reducao">Meta de Redução de Despesas:</label>
+    <br>
+    <input type="number" id="reducao" name="reducao" min="0">
+    <br>
+    <label for="aumento">Meta de Aumento de Renda:</label>
+    <br>
+    <input type="number" id="aumento" name="aumento" min="0">
+    <br>
+    <input type="submit" value="Submeter Valores">
+  </form>
+  <script src="/js/script.js"></script>
+</body>
+
+</html>

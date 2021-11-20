@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../partials/head', {page: 'receitas'}); %>
+</head>
+
+<body>
+  <h1>Receitas</h1>
+  <%- include('../partials/return')%>
+  <form>
+    <label for="receitaMod1">Receita do Primeiro Modulo:</label>
+    <br>
+    <input type="number" id="receitaMod1" name="receitaMod1" min="0">
+    <br>
+    <label for="despesasMod1">Despesas do Primeiro Modulo:</label>
+    <br>
+    <input type="number" id="despesasMod1" name="despesasMod1" min="0">
+    <br>
+    <label for="receitaMod2">Receita do Segundo Modulo:</label>
+    <br>
+    <input type="number" id="receitaMod2" name="receitaMod2" min="0">
+    <br>
+    <label for="despesasMod2">Despesas do Segundo Modulo:</label>
+    <br>
+    <input type="number" id="despesasMod2" name="despesasMod2" min="0">
+    <br>
+    <label for="tetoDespesas">Porcentagem Máxima Para Despesas:</label>
+    <br>
+    <input type="number" id="tetoDespesas" name="tetoDespesas" min="0">
+    <br>
+    <input type="submit" value="Submeter Valores">
+    <br>
+  </form>
+  <button onclick="relacionarReceitas()">Relacionar Receitas</button>
+  <button onclick="relacionarDespesas()">Relacionar Despesas</button>
+  <script src="/js/script.js"></script>
+</body>
+
+</html>

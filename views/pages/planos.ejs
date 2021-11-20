@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../partials/head', {page: 'planos'}); %>
+</head>
+
+<body>
+  <h1>Planos de Gastos</h1>
+  <%- include('../partials/return')%>
+  <form>
+    <label for="escola">Porcentagem para Escola:</label>
+    <br>
+    <input type="number" id="escola" name="escola" min="0">
+    <br>
+    <label for="viagens">Porcentagem para Viagens:</label>
+    <br>
+    <input type="number" id="viagens" name="viagens" min="0">
+    <br>
+    <label for="material">Porcentagem para Material Escolar:</label>
+    <br>
+    <input type="number" id="material" name="material" min="0">
+    <br>
+    <label for="geral">Porcentagem para Gastos Gerais:</label>
+    <br>
+    <input type="number" id="geral" name="geral" min="0">
+    <br>
+    <input type="submit" value="Submeter Valores">
+  </form>
+  <script src="/js/script.js"></script>
+</body>
+
+</html>
