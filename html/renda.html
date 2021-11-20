@@ -11,6 +11,7 @@
         body {
             text-align: center;
             background-color:rgb(31, 31, 31);
+            align-items: center;
         }
         
         button {
@@ -81,12 +82,13 @@
         a:hover{
             border-color: white;
         }
+
     </style>
 </head>
     <body>
         <h1>Renda</h1>
         <button ><a href="D:\Projetos\ENG SOFTWARE\SE_Project\index.html">Retornar</a></button>
-        <form>
+        <form name="Receipt" action="rota_api" method="POST">
             <label for="rendaMensal">Renda Mensal:</label>
             <br>
             <input type="number" id="rendaMensal" name="rendaMensal" min="0">
@@ -97,6 +99,7 @@
             <br>
             <input type="submit" value="Submeter Valores">
         </form>
+  
     </body>
 </html>
 
