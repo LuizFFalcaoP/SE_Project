@@ -60,6 +60,8 @@ function showGrafAnual(){
         containerAnnual.style.display = 'none'
     }
 }
+showGrafAnual()
+showGrafMensal()
 
 createChart(expensesMonth, false)
 createChart(expensesAnnual, true)
