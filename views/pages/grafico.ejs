@@ -9,8 +9,8 @@
 <body>
   <h1>Gráficos</h1>
   <%- include('../partials/return')%>
-  <button onclick="showGrafMensal()">Visualizar Gráfico Mensal</button>
-  <button onclick="showGrafAnual()">Visualizar Gráfico Anual</button>
+  <button onclick="showGrafMensal(<%=DespesasMensais%>)">Visualizar Gráfico Mensal</button>
+  <button onclick="showGrafAnual(<%=DespesasAnuais%>)">Visualizar Gráfico Anual</button>
   <div id="containerMonth" class="design">
     <canvas height="600" id="myChartMonth" width="200" style="display: block; box-sizing: border-box;"></canvas>
   </div>
@@ -18,7 +18,7 @@
     <canvas id="myChartAnnual" height="200"></canvas>
   </div>
 
-  <script src="../../node_modules/chart.js/dist/chart.js"></script>
+  <script type="text/javascript" src="/js/node_chart.js"></script>
 </body>
 
 </html>

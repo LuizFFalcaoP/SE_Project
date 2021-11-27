@@ -35,7 +35,7 @@ const Cost = database.define(
       ),
       allowNull: false,
     },
-    userId: {
+    userid: {
       type: Sequelize.INTEGER,
       allowNull: false,
     },

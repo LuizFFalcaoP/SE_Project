@@ -1,8 +1,8 @@
-const Sequelize = require('sequelize')
-const database = require('./../database')
+const Sequelize = require("sequelize");
+const database = require("./../database");
 
 const Bill = database.define(
-  'bills',
+  "bills",
   {
     id: {
       type: Sequelize.INTEGER,
@@ -24,23 +24,23 @@ const Bill = database.define(
     },
     category: {
       type: Sequelize.ENUM(
-        'educação',
-        'saúde',
-        'alimentação',
-        'veículo',
-        'contas',
-        'aluguel',
-        'condomínio',
-        'cartão',
-        'outros',
+        "educação",
+        "saúde",
+        "alimentação",
+        "veículo",
+        "contas",
+        "aluguel",
+        "condomínio",
+        "cartão",
+        "outros"
       ),
       allowNull: false,
     },
-    costId: {
+    costid: {
       type: Sequelize.INTEGER,
       allowNull: false,
     },
-    isPayed: {
+    ispayed: {
       type: Sequelize.BOOLEAN,
       defaultValue: false,
       allowNull: false,
@@ -51,7 +51,7 @@ const Bill = database.define(
     timestamps: true,
     createdAt: false,
     updatedAt: false,
-  },
-)
+  }
+);
 
-module.exports = Bill
+module.exports = Bill;

@@ -8,14 +8,14 @@
 <body>
   <h1>Metas</h1>
   <%- include('../partials/return')%>
-  <form>
+  <form action="/metas" method="post">
     <label for="reducao">Meta de Redução de Despesas:</label>
     <br>
-    <input type="number" id="reducao" name="reducao" min="0">
+    <input type="number" id="reducao" name="reducao" min="0" value=<%=user.decreasegoals%> required>
     <br>
     <label for="aumento">Meta de Aumento de Renda:</label>
     <br>
-    <input type="number" id="aumento" name="aumento" min="0">
+    <input type="number" id="aumento" name="aumento" min="0" value=<%=user.increasegoals%> required>
     <br>
     <input type="submit" value="Submeter Valores">
   </form>
