@@ -57,6 +57,10 @@ const User = database.define(
       type: Sequelize.DECIMAL,
       allowNull: true,
     },
+    expenseceiling: {
+      type: Sequelize.DECIMAL,
+      allowNull: true,
+    }
   },
   {
     freezeTableName: true,

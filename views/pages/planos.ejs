@@ -8,7 +8,7 @@
 <body>
   <h1>Planos de Gastos</h1>
   <%- include('../partials/return')%>
-  <form>
+  <form action="/planos" method="post">
     <label for="escola">Porcentagem para Escola:</label>
     <br>
     <input type="number" id="escola" name="escola" min="0" value=<%=escola%> required>
