@@ -240,6 +240,62 @@ app.get("/receita", (req, res) => {
   res.render("pages/receitas");
 });
 
+app.post("/receita", async (req, res) => {
+  const user = await User.findByPk(1);
+  const {receitaMod1, despesasMod1, receitaMod2, despesasMod2, tetoDespesas} = req.body;
+
+  if (!!receitaMod1) {
+    await Cost.create({
+      label: "Receitas Módulo 1",
+      value: receitaMod1,
+      date: new Date(),
+      type: tipos.RECEITA,
+      category: categorias.CARTAODECREDITO,
+      userid: user.id,
+    });
+  }
+
+  if (!!despesasMod1) {
+    await Cost.create({
+      label: "Despesas Módulo 1",
+      value: despesasMod1,
+      date: new Date(),
+      type: tipos.DESPESA,
+      category: categorias.CARTAODECREDITO,
+      userid: user.id,
+    });
+  }
+
+  if (!!receitaMod2) {
+    await Cost.create({
+      label: "Receitas Módulo 2",
+      value: receitaMod2,
+      date: new Date(),
+      type: tipos.RECEITA,
+      category: categorias.IMOVEISEALUGUEIS,
+      userid: user.id,
+    });
+  }
+
+  if (!!despesasMod2) {
+    await Cost.create({
+      label: "Despesas Módulo 2",
+      value: despesasMod2,
+      date: new Date(),
+      type: tipos.DESPESA,
+      category: categorias.IMOVEISEALUGUEIS,
+      userid: user.id,
+    });
+  }
+
+  if (!!tetoDespesas) {
+    user.expenseceiling = tetoDespesas;
+    await user.save();
+  }
+
+  res.redirect("/");
+})
+
 app.get("/renda", async (req, res) => {
   const user = await User.findByPk(1);
   res.render("pages/renda", { renda: user.monthlyreceipt });
