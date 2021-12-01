@@ -1,5 +1,26 @@
+const apiUrl = "http://localhost:3000";
+
 const containerAnnual = document.getElementById("containerAnnual");
 const containerMonth = document.getElementById("containerMonth");
+
+let expensesMonth = [250, 150, 100, 70];
+let expensesAnnual = [250, 150, 100, 70, 80, 70, 62, 92, 828, 298, 38, 48];
+
+function setExpensesMonth(value) {
+  expensesMonth = value;
+}
+
+function setExpensesAnnual(value) {
+  expensesAnnual = value;
+}
+
+const getGraphData = async () => {
+  const response = await fetch(`${apiUrl}/despesasMensaisEAnuais`);
+  const data = await response.json();
+  getGraphData().DespesasMensais;
+  setExpensesMonth(DespesasMensais);
+  setExpensesAnnual(DespesasAnuais);
+};
 
 const categoriesMonth = ["Material escolar", "Viagens", "Comida", "Transporte"];
 const categoriesAnnual = [
@@ -17,16 +38,7 @@ const categoriesAnnual = [
   "Dezembro",
 ];
 
-const expensesMonth = [250, 150, 100, 70];
-const expensesAnnual = [250, 150, 100, 70, 80, 70, 62, 92, 828, 298, 38, 48];
-
-function setExpensesMonth(value) {
-  expensesMonth = value;
-}
-
-function setExpensesAnnual(value) {
-  expensesAnnual = value;
-}
+getGraphData();
 
 function createChart(expenses, isAnnual) {
   const correctId = isAnnual ? "myChartAnnual" : "myChartMonth";
@@ -64,8 +76,7 @@ function createChart(expenses, isAnnual) {
     },
   });
 }
-function showGrafMensal(expenses) {
-  // setExpensesMonth(expenses);
+function showGrafMensal() {
   if (containerMonth.style.display === "none") {
     containerAnnual.style.display = "none";
     containerMonth.style.display = "block";
@@ -74,8 +85,7 @@ function showGrafMensal(expenses) {
   }
 }
 
-function showGrafAnual(expenses) {
-  // setExpensesAnnual(expenses);
+function showGrafAnual() {
   if (containerAnnual.style.display === "none") {
     containerMonth.style.display = "none";
     containerAnnual.style.display = "block";
@@ -83,6 +93,8 @@ function showGrafAnual(expenses) {
     containerAnnual.style.display = "none";
   }
 }
+
+getGraphData();
 showGrafAnual();
 showGrafMensal();
 

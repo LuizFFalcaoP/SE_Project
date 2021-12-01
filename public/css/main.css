@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 body {
   text-align: center;
   background-color: rgb(31, 31, 31);
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   color: white;
 }
 
@@ -14,7 +14,7 @@ button {
   border-radius: 5px;
   border: 1px solid transparent;
   font-size: x-large;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   background-color: rgb(94, 94, 94);
   color: white;
   transition-duration: 0.1s;
@@ -27,10 +27,39 @@ button:hover {
 
 h1 {
   font-size: xx-large;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   color: white;
 }
 a {
   text-decoration: none;
   color: white;
+}
+
+section#message {
+  padding: 1.5rem;
+  background-color: #2b2b2b;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+span#close {
+  font-size: 2rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+span#close:hover {
+  color: var(--primary);
+  transform: scale(1.5);
 }
