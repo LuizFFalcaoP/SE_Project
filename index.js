@@ -29,6 +29,8 @@ categorias = {
   CUSTOSGERAIS: "Custos gerais",
 };
 
+let message = "";
+
 DespesasDeJaneiro = 0;
 DespesasDeFevereiro = 0;
 DespesasDeMarco = 0;
@@ -94,7 +96,11 @@ const retornaAno = (data) => {
 app.get("/", async (req, res) => {
   const user = await User.findByPk(1);
 
-  res.render("pages/index", { user });
+  res.render("pages/index", { user, message });
+
+  setTimeout(() => {
+    message = "";
+  }, 1000);
 });
 
 app.get("/despesas", (req, res) => {
@@ -111,7 +117,7 @@ app.post("/despesas", async (req, res) => {
       date: new Date(),
       type: tipos.DESPESA,
       category: categorias.ESCOLA,
-      userid: user.id,
+      userid: 1,
     });
   }
 
@@ -122,7 +128,7 @@ app.post("/despesas", async (req, res) => {
       date: new Date(),
       type: tipos.DESPESA,
       category: categorias.VIAGENS,
-      userid: user.id,
+      userid: 1,
     });
   }
 
@@ -133,28 +139,54 @@ app.post("/despesas", async (req, res) => {
       date: new Date(),
       type: tipos.DESPESA,
       category: categorias.MATERIALESCOLAR,
-      userid: user.id,
+      userid: 1,
     });
   }
 
   if (!!gerais) {
     await Cost.create({
       label: "Despesas Gerais",
-      value: viagem,
+      value: gerais,
       date: new Date(),
       type: tipos.DESPESA,
       category: categorias.CUSTOSGERAIS,
-      userid: user.id,
+      userid: 1,
     });
   }
+
+  message = "Despesas atualizadas com sucesso!";
 
   res.redirect("/");
 });
 
-app.get("/grafico", async (req, res) => {
+app.get("/despesasMensaisEAnuais", async (req, res) => {
   const costs = await Cost.findAll({
     where: {
       type: tipos.DESPESA,
+    },
+  });
+
+  const gastosComMaterialEscolar = await Cost.findAll({
+    where: {
+      category: categorias.MATERIALESCOLAR,
+    },
+  });
+
+  // const gastosComViagens = await Cost.findAll({
+  //   where: {
+  //     category: categorias.VIAGENS,
+  //   },
+  // });
+
+  const gastosGerais = await Cost.findAll({
+    where: {
+      category: categorias.CUSTOSGERAIS,
+    },
+  });
+
+  const gastosComEscola = await Cost.findAll({
+    where: {
+      category: categorias.ESCOLA,
     },
   });
 
@@ -175,8 +207,26 @@ app.get("/grafico", async (req, res) => {
     });
   });
 
-  res.render("pages/grafico", {
+  res.send({
     DespesasMensais: [
+      gastosComMaterialEscolar
+        .map((gasto) => gasto.dataValues.value)
+        .reduce(function (soma, i) {
+          return (soma += i);
+        }),
+      300,
+      gastosGerais
+        .map((gasto) => gasto.dataValues.value)
+        .reduce(function (soma, i) {
+          return (soma += i);
+        }),
+      gastosComEscola
+        .map((gasto) => gasto.dataValues.value)
+        .reduce(function (soma, i) {
+          return (soma += i);
+        }),
+    ],
+    DespesasAnuais: [
       DespesasDeJaneiro,
       DespesasDeFevereiro,
       DespesasDeMarco,
@@ -190,8 +240,11 @@ app.get("/grafico", async (req, res) => {
       DespesasDeNovembro,
       DespesasDeDezembro,
     ],
-    DespesasAnuais: DespesasAnuais.map((despesa) => despesa.value),
   });
+});
+
+app.get("/grafico", (req, res) => {
+  res.render("pages/grafico");
 });
 
 app.get("/metas", async (req, res) => {
@@ -210,7 +263,9 @@ app.post("/metas", async (req, res) => {
 
   await user.save();
 
-  res.redirect("pages/metas");
+  message = "Metas atualizadas com sucesso!";
+
+  res.redirect("/");
 });
 
 app.get("/planos", async (req, res) => {
@@ -233,6 +288,8 @@ app.post("/planos", async (req, res) => {
   user.receiptpercenttogeneral = geral;
 
   await user.save();
+
+  message = "Planos atualizados com sucesso!";
   res.redirect("/");
 });
 
@@ -242,7 +299,13 @@ app.get("/receita", (req, res) => {
 
 app.post("/receita", async (req, res) => {
   const user = await User.findByPk(1);
-  const {receitaMod1, despesasMod1, receitaMod2, despesasMod2, tetoDespesas} = req.body;
+  const {
+    receitaMod1,
+    despesasMod1,
+    receitaMod2,
+    despesasMod2,
+    tetoDespesas,
+  } = req.body;
 
   if (!!receitaMod1) {
     await Cost.create({
@@ -251,7 +314,7 @@ app.post("/receita", async (req, res) => {
       date: new Date(),
       type: tipos.RECEITA,
       category: categorias.CARTAODECREDITO,
-      userid: user.id,
+      userid: 1,
     });
   }
 
@@ -262,7 +325,7 @@ app.post("/receita", async (req, res) => {
       date: new Date(),
       type: tipos.DESPESA,
       category: categorias.CARTAODECREDITO,
-      userid: user.id,
+      userid: 1,
     });
   }
 
@@ -273,7 +336,7 @@ app.post("/receita", async (req, res) => {
       date: new Date(),
       type: tipos.RECEITA,
       category: categorias.IMOVEISEALUGUEIS,
-      userid: user.id,
+      userid: 1,
     });
   }
 
@@ -284,7 +347,7 @@ app.post("/receita", async (req, res) => {
       date: new Date(),
       type: tipos.DESPESA,
       category: categorias.IMOVEISEALUGUEIS,
-      userid: user.id,
+      userid: 1,
     });
   }
 
@@ -293,8 +356,9 @@ app.post("/receita", async (req, res) => {
     await user.save();
   }
 
+  message = "Receitas atualizadas com sucesso!";
   res.redirect("/");
-})
+});
 
 app.get("/renda", async (req, res) => {
   const user = await User.findByPk(1);
@@ -315,8 +379,10 @@ app.post("/renda", async (req, res) => {
     date: new Date(),
     type: "receita",
     category: "Custos gerais",
-    userid: user.id,
+    userid: 1,
   });
+
+  message = "Renda atualizada com sucesso!";
 
   res.redirect("/");
 });
